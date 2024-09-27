@@ -1,0 +1,48 @@
+<?php
+$size = 7;
+
+if ($size < 5 || $size % 2 == 0) {
+    die("Size must be odd and greater than or equal to 5.");
+}
+
+$middle = floor($size / 2);
+
+$output = '';
+
+for ($i = 0; $i < $size; $i++) {
+
+    for ($j = 0; $j < $size; $j++) {
+        if ($i == 0 && $j == 0) {
+
+            $output .= '\\';
+        } elseif ($i == 0 && $j == $size - 1) {
+
+            $output .= '/';
+        } elseif ($i == $size - 1 && $j == 0) {
+
+            $output .= '/';
+        } elseif ($i == $size - 1 && $j == $size - 1) {
+
+            $output .= '\\';
+        } elseif ($i == 0) {
+
+            $output .= '-';
+        } elseif ($i == $size - 1) {
+
+            $output .= '_';
+        } elseif ($j == 0 || $j == $size - 1) {
+
+            $output .= '|';
+        } elseif ($i == $middle && $j == $middle) {
+
+            $output .= '+';
+        } else {
+
+            $output .= ' ';
+        }
+    }
+    $output .= "\n";
+}
+
+echo "<pre>$output</pre>";
+?>
